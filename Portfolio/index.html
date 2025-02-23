@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Natan Hirata | Portfólio</title>
+</head>
+<body>
+    <div class="particulas"></div>
+
+    <nav class="navegacao">
+        <ul class="menu">
+            <li>
+                <a href="#inicio" class="menu_link">Início</a>
+            </li>
+            <li>
+                <a href="#sobre" class="menu_link">Sobre</a>
+            </li>
+            <li>
+                <a href="#projetos" class="menu_link">Projetos</a>
+            </li>
+            <li>
+                <a href="#contatos" class="menu_link">Contatos</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="inicio" class="cabecalho">
+            <img src="./img/natan-hirata.jpg" alt="Imagem Natan Hirata" class="foto_perfil">
+            <h1>Natan Hirata</h1>
+            <p class="cabecalho_sub_titulo">Desenvolvedor Front-End</p>
+    </main>
+
+    <section id="sobre" class="secao">
+        <h2 class="sobre_titulo">Sobre Mim</h2>
+        <div class="sobre_caixa">
+            <p class="sobre_paragrafo">Estudante de Sistemas de Informação, com foco em desenvolvimento de software e programação. Possui conhecimentos em  Python,  Java e C. Apaixonado por tecnologia e inovação , busca oportunidades para aplicar e aprimorar conhecimentos em programação, análise de sistemas e otimização de processos. Atualmente com foco na área de desenvolvimento web.</p>
+        </div>
+    </section>
+
+    <section id="projetos" class="secao">
+        <h2 class="projetos_titulo">Meus Projetos</h2>
+        <div class="projetos_caixa">
+            <div class="projetos_card">
+                <img src="./img/cafe.jpeg" alt="Imagem Café" class="projetos_imagem">
+                <div class="caixa_texto_projeto">
+                    <h3 class="projetos_titulo_card">Cafeteria</h3>
+                    <p class="projetos_paragrafo">Página inicial de uma Cafeteria</p>
+                </div>
+            </div>
+
+            <div class="projetos_card">
+                <img src="./img/LB-WORKS-NISSAN-GT-R-R35.jpg" alt="Imagem GTR LBWK" class="projetos_imagem">
+                <div class="caixa_texto_projeto">
+                    <h3 class="projetos_titulo_card">Liberty Walk</h3>
+                    <p class="projetos_paragrafo">Página inicial com projetos Liberty Walk</p>
+                </div>
+            </div>
+
+            <div class="projetos_card">
+                <img src="./img/Supercross.jpg" alt="Imagem Supercross" class="projetos_imagem">
+                <div class="caixa_texto_projeto">
+                    <h3 class="projetos_titulo_card">Supercross</h3>
+                    <p class="projetos_paragrafo">Página dedicada ao Supercross</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contatos" class="secao">
+        <h2 class="contatos_titulo">Entre em contato</h2>
+        <form class="formulario_contato" id="formulario" onsubmit="enviarMensagem(event)">
+            <div class="grupo_form">
+                <input placeholder="Nome" class="campo_form" id="nome">
+            </div>
+            <div class="grupo_form">
+                <textarea placeholder="Digite sua mensagem" class="campo_form" rows="6" id="mensagem"></textarea>
+            </div>
+            <button type="submit" class="botao_form">Enviar Mensagem</button>
+        </form>
+    </section>
+
+    <footer class="rodape">
+        <p>Desenvolvido por Natan Hirata</p>
+    </footer>
+
+    <script>
+        function enviarMensagem(event){
+            event.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const telefone = '5567911111111';
+            const texto = `Olá, me chamo ${nome}. ${mensagem}`;
+            const mensagemFormatada = encodeURIComponent(texto);
+            const url = `https://api.whatsapp.com/send?phone=${telefone}&text=${mensagemFormatada}`
+        
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
